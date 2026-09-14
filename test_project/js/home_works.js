@@ -124,7 +124,7 @@ function delay(value, ms, shouldFail = false) {
 }
 
 // .then / .catch / .finally
-console.log("=== ДЗ 3: Пункт 1 ===");
+console.log("ДЗ 3: Пункт 1");
 delay(1, 500)
     .then((val1) => {
         console.log("Результат 1-го delay:", val1);
@@ -143,7 +143,7 @@ delay(1, 500)
 
 // последовательная обработка массива через async/await и for
 const processArraySequentially = async () => {
-    console.log("=== ДЗ 3: Пункт 2 ===");
+    console.log("ДЗ 3: Пункт 2");
     const items = [10, 20, 30, 40];
     const results = [];
 
@@ -163,7 +163,7 @@ setTimeout(processArraySequentially, 2000);
 
 // Promise.all, Promise.allSettled, Promise.race
 const runParallelTasks = async () => {
-    console.log("=== ДЗ 3: Пункт 3 ===");
+    console.log("ДЗ 3: Пункт 3");
     try {
         await Promise.all([
             delay("A", 300),
