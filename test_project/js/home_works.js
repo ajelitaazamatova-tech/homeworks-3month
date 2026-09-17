@@ -200,3 +200,46 @@ const runParallelTasks = async () => {
     }
 };
 setTimeout(runParallelTasks, 5000);
+
+//hw4.1 жсон
+const characterList = document.querySelector(".characters-list");
+
+const getCharacters = async () => {
+    try {
+        const response = await fetch("characters.json");
+        if (!response.ok) {
+            throw new Error (`Ошибка при получении данных: ${response.status}`);
+        }
+        const data = await response.json();
+        data.forEach((character) => {
+            const characterCard = document.createElement("div");
+            characterCard.classList.add("character-card");
+            characterCard.innerHTML = `
+        <div class = "characters"> 
+        <img src="${character.person_photo} " alt = "${character.name}"> 
+        </div>
+        <h3>${character.name} ${character.surname}</h3>
+        <p>Species: ${character.species}</p>
+        <p>Age: ${character.age}</p>`;
+        characterList?.append(characterCard);
+    });
+    }catch(error){
+    console.log("ошбика при загрузке персонажей:", error)};
+}
+getCharacters();
+
+//4.2
+const getBio = async () => {
+    try {
+        const response = await fetch("bio.json");
+        if (!response.ok){
+            throw new Error (`Ошибка при получении данных: ${response.status}`);
+        }
+    const bioData = await response.json();
+    console.log("Biography:", bioData);
+    }catch(error){
+        console.log("ошибка при загрузке биографии:", error);
+    }
+}
+getBio();
+

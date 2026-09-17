@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Damon",
+    "surname": "Salvatore",
+    "species": "Vampire",
+    "age": 170,
+    "person_photo": "https://i.pinimg.com/originals/.../damon.jpg"
+  },
+  {
+    "name": "Nicklaus",
+    "surname": "Mikaelson",
+    "species": "Hybrid",
+    "age": 1000,
+    "person_photo": "https://i.pinimg.com/originals/.../klaus.jpg"
+  },
+  {
+    "name": "Bonnie",
+    "surname": "Bennett",
+    "species": "Witch",
+    "age": 25,
+    "person_photo": "https://i.pinimg.com/originals/.../bonnie.jpg"
+  }
+]
