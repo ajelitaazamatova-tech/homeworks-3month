@@ -243,3 +243,70 @@ const getBio = async () => {
 }
 getBio();
 
+//HW 5
+const userForm = document.querySelector("#userForm");
+const consentCheckbox = document.querySelector("#consent");
+const submitBtn = document.querySelector("#submitBtn");
+const sendTypeSelect = document.querySelector("#sendType");
+const formResult = document.querySelector("#formResult");
+
+consentCheckbox?.addEventListener("change", (e) => {
+    submitBtn.disabled = !e.target.checked;
+});
+
+userForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!consentCheckbox.checked) return;
+
+    formResult.textContent = "Отправка...";
+    formResult.style.color = "#4f46e5";
+    submitBtn.disabled = true;
+
+    const url = "https://jsonplaceholder.typicode.com/posts";
+    const sendType = sendTypeSelect.value;
+
+    try {
+        let response;
+
+        if (sendType === "json") {
+            const formDataObj = {
+                name: userForm.name.value,
+                email: userForm.email.value,
+                password: userForm.password.value,
+                age: Number(userForm.age.value),
+                bio: userForm.bio.value,
+                gender: userForm.gender.value,
+                consent: consentCheckbox.checked
+            };
+
+            response = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formDataObj)
+            });
+        } else {
+            const formData = new FormData(userForm);
+            response = await fetch(url, {
+                method: "POST",
+                body: formData
+            });
+        }
+
+        if (!response.ok) {
+            throw new Error(`Ошибка: ${response.status}`);
+        }
+
+        const data = await response.json();
+        formResult.textContent = `Успешно отправлено! ID: ${data.id}`;
+        formResult.style.color = "#16a34a";
+        userForm.reset();
+        submitBtn.disabled = true;
+
+    } catch (error) {
+        formResult.textContent = `Ошибка: ${error.message}`;
+        formResult.style.color = "#dc2626";
+    } finally {
+        if (consentCheckbox.checked) submitBtn.disabled = false;
+    }
+});
