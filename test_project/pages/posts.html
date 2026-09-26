@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/core.css">
+    <style>
+        .posts_wrapper {
+            min-height: 100vh; 
+            padding-top: 120px; 
+            padding-bottom: 60px;
+            background-color: black;
+            min-height: calc(100vh - 200px);
+        }
+        .posts_title {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+        .posts_container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .post_card {
+            width: 300px;
+            border: 1px solid var(--orange, #ffa500);
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+        .post_card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .post_card h3 {
+            color: var(--orange, #ffa500);
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+        }
+        .post_card p {
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+        <div class="container">
+            <div class="inner_header">
+                <a href="../index.html">
+                    <div class="logotype">
+                        <h2>Java<span>Script</span></h2>
+                    </div>
+                </a>
+                <ul class="menu">
+                    <li class="menu_link">
+                        <a href="../pages/home_works.html">Home Works</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="../pages/lessons.html">Lessons</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="https://t.me/baked_toastt" target="_blank">Send message</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="../pages/posts.html">Posts</a>
+                    </li>
+                </ul>
+                <button class="btn" id="btn-get">Click me!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="posts_wrapper">
+        <div class="container">
+            <h2 class="posts_title">Posts</h2>
+            <div class="posts_container" id="posts-container">
+                <p style="color: white; text-align: center;">Загрузка постов...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="inner_footer">
+                <h2>Made by Somebody</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../js/posts.js"></script>
+<script src="../js/modal.js"></script>
+</html>
